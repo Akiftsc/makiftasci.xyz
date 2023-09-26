@@ -1,0 +1,29 @@
+.mainTitle {
+    @apply capitalize w-full text-center;
+}
+
+@media (max-width: 500px) {
+    .mainTitle {
+        @apply text-[1.40rem];
+    }
+}
+
+.one{
+    @apply text-2xl sm:text-3xl md:text-5xl
+}
+
+.two{
+@apply text-xl sm:text-2xl md:text-3xl capitalize w-full;
+}
+
+.middle{
+    text-align: center;
+}
+
+.left{
+    text-align: left;
+}
+
+.right{
+    text-align: right;
+}

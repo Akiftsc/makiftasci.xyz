@@ -1,0 +1,42 @@
+.interests {
+    position: relative;
+}
+
+.interests:hover:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    animation-name: border-animation;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0, 0.91, 1, 0.87);
+    animation-duration: 1s;
+
+    border: 2px solid #F5CB5C;
+    margin-top: 8px;
+}
+
+@keyframes border-animation {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.ball{
+    animation: forwards opacity-animation 3s;
+    transition: 250ms all;
+    @apply absolute text-xs bg-white rounded-full p-1 mb-3 top-[-4px] right-[-12px] transition-all grid place-items-center
+}
+
+
+@keyframes opacity-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

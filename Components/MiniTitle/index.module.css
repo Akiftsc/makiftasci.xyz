@@ -1,0 +1,17 @@
+.miniTitle {
+    @apply md:text-4xl font-[700] tracking-tight capitalize;
+}
+
+@media (max-width: 500px) {
+    .miniTitle {
+        @apply text-[1.3rem];
+    }
+}
+
+@media (min-width: 500px) {
+    .miniTitle {
+        @apply text-[1.5rem];
+    }
+}
+
+
