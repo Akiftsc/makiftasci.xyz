@@ -60,13 +60,6 @@ export async function generateStaticParams() {
 }
 
 
-interface Twitter {
-    site: string;
-    url: string;
-    title: any;
-    description: any;
-    image: string;
-}
 
 export async function generateMetadata(
     { params }: any,
