@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-
+import Script from "next/script";
 import Header from "@/Components/Header";
 import React from "react";
 
@@ -10,6 +10,20 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: "Akif's site",
   description: "Akif's website's description",
+  authors: [{url: "https://www.makiftasci.xyz", name: "Mehmet Akif Taşçı"}],
+  keywords: [
+      "Mehmet Akif Taşçı",
+      "makiftasci",
+      "akif2442",
+       "Bülent Akarcalı Mehmet Akif Taşçı ",
+      "Mehmet Akif Taşçı Blog",
+      "Mehmet Akif Taşçı Kişisel Blog",
+        "Mehmet Akif Taşçı Blog Sitesi",
+      "Mehmet Akif Taşçı Kimdir?",
+        "Mehmet Akif Taşçı iletişim bilgileri",
+  ],
+  themeColor: "#F4CB5C"
+
 
 }
 
@@ -46,7 +60,21 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
             {children}
+        <Script
+            strategy="lazyOnload"
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        />
 
+        <Script strategy="lazyOnload" id="google-tag-manager">
+          {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                    page_path: window.location.pathname,
+                    });
+                `}
+        </Script>
       </body>
     </html>
   )
