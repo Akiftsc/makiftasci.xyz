@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+
 import Header from "@/Components/Header";
 import React from "react";
 
@@ -44,7 +45,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <Header />
-        {children}
+            {children}
 
       </body>
     </html>

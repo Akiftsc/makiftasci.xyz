@@ -37,7 +37,7 @@ export default async function BlogDetail({ params }: any) {
                     {post.title}
                 </MainTitle>
                 <h4 className="text-lg">From: {post.author.name} <span className="inline">
-                    <Image alt="photo of author" src={authorImage.url} width={32} height={32} className="inline rounded-full w-10 h-10" />
+                    <Image alt="photo of author" src={authorImage.url} width={32} height={36} className="inline rounded-2xl" />
                 </span></h4>
             </div>
             <div className="flex flex-col items-center justify-between gap-3 tracking-tight text-base max-w-[960px] !text-left">
@@ -74,7 +74,6 @@ export async function generateMetadata(
 ): Promise<any> {
     const slug = params.id;
     const post = await fetchPost(slug);
-    console.log(post)
     return {
         title: post.title,
         description: post.description ?? `${post.title} from Mehmet Akif Taşçı`,

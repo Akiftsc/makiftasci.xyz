@@ -17,10 +17,10 @@ export default function Resume() {
                     Biographical
                 </MiniTitle>
                 <p className="text-defaultText text-base font-[500] tracking-tight">
-                    Mehmet Akif was born on <span className="highlighted">May 16, 2008</span>, in Istanbul.
+                    Akif was born on <span className="highlighted">May 16, 2008</span>, in Istanbul.
                     He is a high school student with a profound passion for software development.
-                    He is currently enrolled at Bülent Akarcalı Highschool, which is located in <span className="highlighted">Istanbul</span>.
-                    Akif is immersed in a challenging software technology learning program that ignites his passion for learning and developing projects for his journey towards becoming a software engineer.
+                    He is currently enrolled at Bülent Akarcalı High-school, which is located in <span className="highlighted">Istanbul, Üsküdar</span>.
+                    He is a self-taught developer who has been coding for 3 years. Akif&apos;s biggest dream is run his own software company in a competitive environment.
                 </p>
                 <br />
 

@@ -16,11 +16,10 @@ export const getAccessToken = async () => {
             }
         `,
             variables: {
-                email: "akiftsc41@gmail.com",
-                password: "balkabagi",
+                email: process.env["NEXT_PUBLIC_LITERAL_EMAIL"],
+                password: process.env["NEXT_PUBLIC_LITERAL_PASSWORD"],
             },
         }),
-        cache: "force-cache",
         next: {
             revalidate: 60 * 60 * 24 * 14
         }
@@ -60,7 +59,6 @@ export const getCurrentlyReadingBooks = async () => {
           }
             `,
         }),
-        cache: "force-cache",
         next: {
             revalidate: 60 * 60 * 12
         }
@@ -68,8 +66,5 @@ export const getCurrentlyReadingBooks = async () => {
 
     const shelves = await res.json();
     const currentlyReading = shelves.data.myReadingStates.filter((shelf: { status: string; }) => shelf.status === "IS_READING");
-    console.log(
-        currentlyReading
-    )
     return currentlyReading;
 };

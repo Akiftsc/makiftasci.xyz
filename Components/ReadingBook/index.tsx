@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/legacy/image";
 import Link from "next/link";
 import React from "react";
 
@@ -18,7 +18,7 @@ export default function ReadingBook({ title, cover, readPercents, slug }: bookPr
                 className={`flex flex-col p-0 cursor-pointer book relative min-w-full`}
                 style={{ "--percentage": (readPercents + "%") } as React.CSSProperties}
             >
-                <Image alt={""} className="z-10 object-contain shadow-bookCover" src={cover} layout="responsive" width={176} height={256} />
+                <Image alt={`image of ${title} book.`} className="z-10 object-contain shadow-bookCover" src={cover} layout="responsive" width={176} height={256} />
 
             </div>
             <span>
