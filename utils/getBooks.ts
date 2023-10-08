@@ -19,10 +19,7 @@ export const getAccessToken = async () => {
                 email: process.env["NEXT_PUBLIC_LITERAL_EMAIL"],
                 password: process.env["NEXT_PUBLIC_LITERAL_PASSWORD"],
             },
-        }),
-        next: {
-            revalidate: 60 * 60 * 24 * 14
-        }
+        })
     }).then((res) => res.json());
     return response.data.login.token;
 };
@@ -59,8 +56,9 @@ export const getCurrentlyReadingBooks = async () => {
           }
             `,
         }),
+        cache: "no-cache",
         next: {
-            revalidate: 60 * 60 * 12
+            revalidate: 60 * 60
         }
     });
 

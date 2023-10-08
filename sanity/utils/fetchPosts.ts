@@ -14,8 +14,9 @@ export const query = groq`
 
 export const fetchPosts = async () => {
     const posts:BlogComponentProps[] = await client.fetch(query, {
+        cache: "no-cache",
         next: {
-            revalidate: 3600
+            revalidate: 60 * 60
         }
     });
     return posts;

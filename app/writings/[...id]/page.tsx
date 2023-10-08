@@ -1,15 +1,16 @@
 import MainTitle from "@/Components/MainTitle";
 import Image from "next/image";
 import { fetchPosts, fetchPost } from "@/sanity/utils/fetchPosts";
-// @ts-ignore
-import BlockContent from "@sanity/block-content-to-react";
-import { urlFor } from "@/sanity/utils/UrlFor";
-import type { Metadata, ResolvingMetadata } from 'next'
+import  github  from '@theme-ui/prism/presets/github.json';
+import {urlFor} from "@/sanity/utils/UrlFor";
 
+import BlockContent from '@sanity/block-content-to-react';
 
-export default async function BlogDetail({ params }: any) {
+export default async function BlogDetail({ params }) {
     const slug = params.id;
     const post = await fetchPost(slug);
+    console.log(post.body)
+
     const MainImage = {
         url: urlFor(post.mainImage).url(),
         width: urlFor(post.mainImage).options.width,
@@ -19,7 +20,6 @@ export default async function BlogDetail({ params }: any) {
     const authorImage = {
         url: urlFor(post.author.image).url()
     }
-
 
     return (
         <main className="container-sm p-12 w-full h-full flex flex-col items-center gap-8 text-defaultBlogText">
@@ -37,14 +37,17 @@ export default async function BlogDetail({ params }: any) {
                     {post.title}
                 </MainTitle>
                 <h4 className="text-lg">From: {post.author.name} <span className="inline">
-                    <Image alt="photo of author" src={authorImage.url} width={32} height={36} className="inline rounded-2xl" />
-                </span></h4>
+          <Image alt="photo of author" src={authorImage.url} width={32} height={36} className="inline rounded-2xl" />
+        </span></h4>
             </div>
             <div className="flex flex-col items-center justify-between gap-3 tracking-tight text-base max-w-[960px] !text-left">
-
                 <Image src={MainImage.url} width={MainImage.width} height={MainImage.height} alt="Blog post's image" className="rounded" style={{ boxShadow: "0px 6px 5px 0px rgba(0, 0, 0, 0.25)" }} priority={true} />
                 <div className="text-left text-lg">
-                    <BlockContent blocks={post.body} projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID} dataset={"production"} />
+                    <BlockContent
+                        blocks={post.body}
+                        projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
+                        dataset={"production"}
+                    />
                 </div>
             </div>
         </main>
@@ -52,19 +55,17 @@ export default async function BlogDetail({ params }: any) {
 }
 
 export async function generateStaticParams() {
-    const posts = await fetchPosts()
+    const posts = await fetchPosts();
 
     return posts.map((post) => ({
         slug: post.slug,
     }))
 }
 
-
-
 export async function generateMetadata(
-    { params }: any,
-    parent: ResolvingMetadata
-): Promise<any> {
+    { params },
+    parent
+) {
     const slug = params.id;
     const post = await fetchPost(slug);
     return {
@@ -95,5 +96,3 @@ export async function generateMetadata(
         }
     }
 }
-
-

@@ -13,8 +13,9 @@ export const query = groq`
 
 export const fetchGallery = async () => {
     const images = await client.fetch(query, {
+        cache: "no-cache",
         next: {
-            revalidate: 3600
+            revalidate: 60 * 60
         }
     });
     return images;
