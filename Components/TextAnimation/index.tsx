@@ -23,7 +23,7 @@ const AnimatedText = () => {
     return (
         <div className="inline relative group">
             <span className={`${styles.interests} group-hover: block`}>
-                Node.js
+                Web Development
             </span>
             <span className={`${styles.ball} group-hover:bg-primary`}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 h-3">

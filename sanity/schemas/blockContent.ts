@@ -70,22 +70,6 @@ export default defineType({
           title: 'Alternative Text',
         }
       ]
-    }),
-      defineArrayMember(
-          {
-            type: 'code',
-            name: 'myCodeField',
-            title: 'Code with all options',
-            options: {
-              language: 'javascript',
-              languageAlternatives: [
-                { title: "Javascript", value: "javascript" },
-                { title: "TypeScript", value: "typescript" },
-                { title: "tsx", value: "tsx" },
-              ],
-              withFilename: true,
-            }
-          }
-      )
+    })
   ],
 })
